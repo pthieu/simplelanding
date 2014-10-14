@@ -1,2 +1,139 @@
-body{
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  border-radius: 0 !important;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-border-radius: 0 !important;
+  -moz-border-radius: 0 !important;
 }
+html {
+  height: 100%;
+  width: 100%;
+}
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-color: white;
+  font-family: "Segoe UI", "Arial", "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+  color: #252525;
+  text-align: center;
+}
+.underline{
+  text-decoration: underline;
+}
+a{
+  color:inherit;
+}
+.wrapper {
+  position: relative;
+  display: block;
+}
+.logo-primary-color {
+  color: #008aff;
+}
+
+/*START Landing Page CSS*/
+.landing .wrapper {
+  background-image: url('/img/components.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  min-width:1024px;
+  margin:auto;
+}
+.landing .wrapper img.bg{
+  z-index: -1;
+  width:100%;
+  display:block;
+  position:relative;
+}
+.landing .callout {
+  display:inline-block;
+  background-color: #252525;
+  margin-top: 200px;
+  color: #ffffff;
+  padding-top: 40px;
+  width:100%;
+}
+.landing .branding, .landing .uvp{
+  margin-bottom:20px;
+}
+.landing .mailing-list form{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.landing .mailing-list input{
+  font-size:18px;
+  border:1px solid transparent;
+  padding:5px;
+}
+.landing .mailing-list input[type="submit"]{
+  background-color:#008aff;
+  color:inherit;
+  padding-right:20px;
+  padding-left:20px;
+  cursor:pointer;
+}
+.landing .mailing-list input[type="submit"]:hover{
+  background-color: #252525;
+  border-color: #ffffff;
+}
+.landing .PSA{
+  z-index:1;
+  display:block;
+  margin:auto;
+  width:550px;
+  text-align: center;
+}
+.landing .PSA .msg{
+  display:block;
+  margin:auto;
+  padding:10px;
+  color:#656565;
+  background-color: #ffffff;
+  width: 100%;
+  border: 2px solid #252525;
+}
+.landing .PSA .msg h3{
+  margin-bottom:15px;
+}
+
+@media screen and (max-width: 1280px){
+  .landing .callout {
+    /*margin-top:-200px;*/
+  }
+}
+@media screen and (max-width: 768px){
+  .landing .wrapper{
+    min-width: 320px;
+  }
+  .landing .callout{
+    float:none;
+    margin:0;
+    margin-top:150px;
+    padding:15px;
+  }
+  .landing .PSA .msg{
+    padding:10px;
+  }
+}
+@media screen and (max-width: 568px){
+  .landing h2{
+    font-size: 18px;
+  }
+  .landing h3{
+    font-size: 14px;
+  }
+  .landing .callout{
+    margin-top:163px;
+    width:100%;
+    padding:20px 5px 0 5px;
+  }
+  .landing .PSA{
+    width:100%;
+  }
+}
+/*END Landing Page CSS*/

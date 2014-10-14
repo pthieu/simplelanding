@@ -1,7 +1,7 @@
 var express = require('express'),
-  router = express.Router(),
-  mongoose = require('mongoose'),
-  Article = mongoose.model('Article');
+router = express.Router(),
+mongoose = require('mongoose'),
+MailingList = mongoose.model('MailingList');
 
 module.exports = function (app) {
   app.use('/', router);
@@ -9,14 +9,27 @@ module.exports = function (app) {
 };
 
 router.get('/', function (req, res, next) {
-  Article.find(function (err, articles) {
-    if (err) return next(err);
-    res.render('landing', {
-      bodyclass: 'landing',
-      title: 'This is landing',
-      articles: articles
-    });
+  res.render('landing', {
+    bodyclass: 'landing',
+    metadesc: 'Learn the fundamentals of electrical engineering interactively for free, step-by-step from basics to advanced theory and electronics application',
+    title: 'Electrical Academy | Learn electrical engineering online interactively for free!',
   });
+});
+
+router.post('/mailinglist', function (req, res, next) {
+  //if email exists, server check
+  if (!!req.body.email){
+    var Mail = new MailingList({
+      email:req.body.email,
+    });
+
+    Mail.save(function(err, mail, n) {
+      if (err) console.error(err);
+      console.log('save succesful')
+    });
+  }
+  var redirect = "/";
+  res.redirect(302,redirect);  
 });
 
 var socketsCTRL = function(io){
