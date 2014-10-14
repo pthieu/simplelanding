@@ -34,7 +34,6 @@ router.post('/mailinglist', function (req, res, next) {
 var socketsCTRL = function(io){
   io.on('connection', function (socket) {
     socket.on('getTest', function (data) {
-      socket.emit('getTest_RES', 'wjhat the fuck');
     });
   });
 }
