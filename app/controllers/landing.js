@@ -25,7 +25,6 @@ router.post('/mailinglist', function (req, res, next) {
 
     Mail.save(function(err, mail, n) {
       if (err) console.error(err);
-      console.log('save succesful')
     });
   }
   var redirect = "/";
