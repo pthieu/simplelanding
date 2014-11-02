@@ -19,12 +19,15 @@ router.get('/', function (req, res, next) {
 router.post('/mailinglist', function (req, res, next) {
   //if email exists, server check
   if (!!req.body.email){
-    var Mail = new MailingList({
-      email:req.body.email,
-    });
+    MailingList.findOne({'email': req.body.email}, function(err, email) {
+      if (!!email) return; //do nothing if email exists
+      var Mail = new MailingList({
+        email:req.body.email,
+      });
 
-    Mail.save(function(err, mail, n) {
-      if (err) console.error(err);
+      Mail.save(function(err, email, n) {
+        if (err) console.error(err);
+      });
     });
   }
   var redirect = "/thankyou";
