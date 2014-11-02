@@ -27,8 +27,8 @@ router.post('/mailinglist', function (req, res, next) {
       if (err) console.error(err);
     });
   }
-  var redirect = "/";
-  res.redirect(302,redirect);  
+  var redirect = "/thankyou";
+  res.redirect(302, redirect);
 });
 
 var socketsCTRL = function(io){
